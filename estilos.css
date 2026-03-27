@@ -1,0 +1,120 @@
+.activities-container{
+    display:grid;
+    column-gap: 40px;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+}
+.allContainers{
+    height: 70vh;
+    border-radius: 40px;
+    background-color: rgb(245, 245, 201);
+    border-width: 10px;
+    border-style:solid;
+    padding: 20px;
+    display:flex ;
+    flex-direction: column;
+    row-gap: 20px;
+    overflow: auto;
+}
+.container1{
+    
+    border-color: greenyellow;
+}
+.container2{
+    border-color: blueviolet;
+}
+.container3{
+    border-color:rgb(233, 80, 80) ;
+}
+.input-container{
+    display:flex;
+    flex-direction: row;
+    column-gap: 20px;
+    
+}
+textarea{
+    max-height: 100px;
+    max-width: 400px;
+    border-radius: 10px;
+    border-color: rgb(42, 156, 250);
+    font-size: 15px;
+    min-width: 300px;
+    background-image: url('papel.avif');
+    padding:6px;
+}
+body{
+    background-color: rgb(157, 149, 149);
+    font-family: system-ui, -apple-system;
+}
+input{
+    scale:1.1
+}
+.tarjeta{
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 30px;
+    padding: 10px;
+    display:flex;
+    flex-direction: row;
+    position:relative
+}
+
+.tarjeta:hover{
+    cursor:grab
+}
+.tarjeta:active{
+    cursor:grabbing
+}
+
+
+.container1 div{
+    background-color: rgba(178, 243, 187, 0.595);
+}
+.container2 div{
+    background-color: rgba(212, 181, 242, 0.437);
+}
+.container3 div{
+    background-color: rgba(237, 167, 167, 0.367);
+}
+
+.container1 div:active{
+    background-color: rgba(71, 157, 81, 0.514);
+}
+.container2 div:active{
+    background-color: rgba(137, 43, 226, 0.432);
+}
+.container3 div:active{
+    background-color: rgba(224, 62, 62, 0.425);
+}
+.tarjeta.drag-over-top {
+      border-top: 3px solid #000000;
+    }
+
+.tarjeta.drag-over-bottom {
+      border-bottom: 3px solid #000000;
+    }
+.allContainers.over{
+    background-color: rgb(245, 249, 160);
+}
+.icono-menu{
+    height:30px;
+    margin-left:auto
+}
+.icono-menu:hover{
+    cursor:pointer
+}
+.menu{
+    position:absolute;
+    top:36px;
+    right:12px;
+    z-index:100;
+    display:none;
+}
+.menu.open{
+    display:block;
+    width: 60px;
+    background-color: aliceblue;
+    height: 50px;
+    
+
+}
