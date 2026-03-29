@@ -148,7 +148,7 @@ function menuDesplegable(img,nuevoDiv,pContainer){
     menu.classList.add('menu');
     menu.appendChild(editarBtn);
     menu.appendChild(borrarBtn);
-    img.parentElement.style.position = 'relative'; // ✅ para posicionar el menú
+    img.parentElement.style.position = 'relative';
     img.parentElement.appendChild(menu);
 
     img.addEventListener('click',(e)=>{
@@ -161,7 +161,24 @@ function menuDesplegable(img,nuevoDiv,pContainer){
         actualizarListas()
     });
 
-    //editarBtn.addEventListener('click',()=>{
-      //  pContainer.
-    //})
+   
+    
+    editarBtn.addEventListener('click',()=>{
+        const editionDiv = document.createElement("div");
+        const textarea2 = document.createElement("textarea");
+        const check = document.createElement("button");
+        check.innerText="listo";
+        editionDiv.appendChild(textarea2);
+        editionDiv.appendChild(check);
+        nuevoDiv.parentNode.replaceChild(editionDiv,nuevoDiv);
+       handleListoClick(editionDiv,textarea2,check,nuevoDiv)
+    })
+
+}
+function handleListoClick(editionDiv,textarea2,check,nuevoDiv){
+    check.addEventListener("click",()=>{
+        nuevoDiv.textContent=textarea2.value;
+        editionDiv.parentNode.replaceChild(nuevoDiv,editionDiv);
+        actualizarListas();
+    })
 }
