@@ -17,7 +17,8 @@ addButton.addEventListener('click',()=>{
     img.src = "icono.png";
     img.classList.add("icono-menu");
     img.draggable=false;
-    const pContainer= document.createElement('p');
+    let pContainer= document.createElement('p');
+    pContainer.classList.add('pContainer');
 
     if(textInput!==""){
         nuevoDiv=document.createElement('div');
@@ -113,16 +114,16 @@ zonas.forEach(zona => {
 function actualizarListas(){
     zonas.forEach(zona=>{
         if (zona==zonas[0]){
-            hacerList = [...hacerContainer.querySelectorAll('.tarjeta')]
-            .map(div => div.textContent);
+            hacerList = [...hacerContainer.querySelectorAll('.pContainer')]
+            .map(p=> p.textContent);
         }
         else if(zona==zonas[1]){
-            haciendoList=[...haciendoContainer.querySelectorAll('.tarjeta')]
-            .map(div=>div.textContent);
+            haciendoList=[...haciendoContainer.querySelectorAll('.pContainer')]
+            .map(p=>p.textContent);
         }
         else if (zona==zonas[2]){
-            hechoList=[...hechoContainer.querySelectorAll('.tarjeta')]
-            .map(div=>div.textContent)
+            hechoList=[...hechoContainer.querySelectorAll('.pContainer')]
+            .map(p=>p.textContent)
         }
     })
 }
@@ -171,14 +172,15 @@ function menuDesplegable(img,nuevoDiv,pContainer){
         editionDiv.appendChild(textarea2);
         editionDiv.appendChild(check);
         nuevoDiv.parentNode.replaceChild(editionDiv,nuevoDiv);
-       handleListoClick(editionDiv,textarea2,check,nuevoDiv)
-    })
 
-}
-function handleListoClick(editionDiv,textarea2,check,nuevoDiv){
-    check.addEventListener("click",()=>{
-        nuevoDiv.textContent=textarea2.value;
-        editionDiv.parentNode.replaceChild(nuevoDiv,editionDiv);
-        actualizarListas();
+        check.addEventListener("click",()=>{
+            let textarea2Value=textarea2.value.trim();
+            pContainer.textContent = textarea2Value;
+            editionDiv.parentNode.replaceChild(nuevoDiv,editionDiv);
+            actualizarListas();
+            menu.classList.add('close');
+            menuDesplegable(img,nuevoDiv,pContainer)
+        })
+        
     })
 }
